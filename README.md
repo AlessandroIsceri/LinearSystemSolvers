@@ -49,10 +49,15 @@ LinearSystemSolvers/
 
 ```bash
 git clone https://github.com/AlessandroIsceri/LinearSystemSolvers.git
-cd LinearSystemSolvers
 ```
 
-2. Import the solvers from the src/ folder.
+2. Install required packages
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Import the solvers from the src/ folder.
 
 ```python
 import numpy as np
