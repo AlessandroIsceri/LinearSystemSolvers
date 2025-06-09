@@ -3,8 +3,6 @@ import sys
 import numpy as np
 from scipy.io import mmread
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
 from main import main
 
 relative_path = '../data/'
@@ -20,12 +18,18 @@ j = 0
 
 for matrix_name in matrix_names:
     j = 0
+    
+    # Load matrix
     A = mmread(relative_path + matrix_name)
     A = np.array(A.todense())
     n = len(A)
+    
     x_esatta = [1 for i in range(n)]
+    
+    # Compute right-hand side vector
     b = np.dot(A, x_esatta)
     print("matrix_name: ", matrix_name)
+    
     for tol in tols:
         print("tol: ", tol)
         errors[i][j], elapsed_times[i][j], it_numbers[i][j] = main(A, b, x_esatta, tol)
